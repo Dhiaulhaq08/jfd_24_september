@@ -8,5 +8,8 @@ http.createServer ( function(request,response){
         `<h1>Selamat datang `
     )
 }).listen (3000, function() { 
-    console.log(`server sudah nyala, buka http://.localhost:3000`)
+    console.log(`server sudah nyala bung, buka http://.localhost:3000`)
 })
+
+// tes nambah komentar 
+// kirim ke 2z
