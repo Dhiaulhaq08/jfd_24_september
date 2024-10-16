@@ -1,12 +1,13 @@
 //memanggil modul bawaan dari node js yaitu http
 // untuk membuat server http 
 const http = require ('http')
+const fs = require ('fs')
 
 http.createServer ( function(request,response){ 
     response.writeHead(200, {'Content-type' : 'text/html'})
     //halaman utama
     if ( request.url == '/'){ 
-        response.end (`<h1>Selamat datang ngab`)
+        fs.createReadStream('./view/halaman-utama.html').pipe(response)
     }
     else if ( request.url == '/profil'){ 
         response.end(
@@ -14,6 +15,19 @@ http.createServer ( function(request,response){
             <li>Nama : lengkap </li> 
             <li>Tanggal : Lahir </li>
         </ul>`
+        )
+    }
+    else if ( request.url == '/hubungi-saya'){ 
+        let kontak = { 
+                        wa: 'jikow',
+                        email: 'jikow@jikow.com',
+                        
+        }
+        response.end( 
+            `<ul>
+                <li>Whatsapp : ${kontak.wa}
+                <li>Email : ${kontak.email}
+            </ul>`
         )
     }
     // menangani halaman yang tidak ada
