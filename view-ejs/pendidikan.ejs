@@ -1,5 +1,24 @@
 <h1>List Karyawan</h1>
-<ul>
-    <li>Nama lengkap : <%= nama %>
-    </li>
-</ul>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>NIK </th>
+            <th>Nama</th>
+            <th>Jabatan</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (const i in karyawan ) { %>
+        <tr>
+           
+            <td><%= karyawan[i].nik %></td>
+            <td><%= karyawan[i].nama %></td>
+            <td><%= karyawan[i].jabatan %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+<pre>
+    <%= JSON.stringify(karyawan, null ,4) %>
+</pre>
